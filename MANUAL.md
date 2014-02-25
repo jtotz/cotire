@@ -535,6 +535,15 @@ enabled in the following way upon configuring the project:
     $ export CXX="/usr/local/bin/ccache /usr/bin/g++"
     $ cmake ..
 
+Note that with ccache in order for precompiled headers to work properly, it is necessary to set
+the environment variable `CCACHE_SLOPPINESS` to `time_macros`. Otherwise the build process may
+abort with the following error message:
+
+    fatal error: file 'example_CXX_prefix.hxx' has been modified since the precompiled header
+          'example_CXX_prefix.hxx.gch' was built
+
+Also see the [ccache manual][ccch_pch].
+
 ### applying cotire to object library targets
 
 CMake 2.8.8 introduced a new type of library target called [object library][objlib]. An object
@@ -625,6 +634,7 @@ Cotire is not compatible with [Xoreax IncrediBuild][XGE].
 
 [1260]:http://www.cmake.org/Bug/view.php?id=1260
 [ccch]:http://ccache.samba.org/
+[ccch_pch]:http://ccache.samba.org/manual.html#_precompiled_headers
 [clang_pch]:http://clang.llvm.org/docs/UsersManual.html#precompiledheaders
 [gcc_pch]:http://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
 [kde4macros]:http://kbfxmenu.googlecode.com/svn/trunk/kbfx3/cmakemodules/KDE4Macros.cmake
