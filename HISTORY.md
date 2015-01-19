@@ -1,3 +1,22 @@
+## 1.6.9 (2015-01-18)
+
+* fix bug with parsing of localized MSVC `/showIncludes` output.
+
+## 1.6.8 (2014-12-28)
+
+* fix bug with generation of unity source file segments for parallel builds.
+
+## 1.6.7 (2014-12-21)
+
+* fix CMake 3.1 compatibility issues.
+* fix ccache 3.2 compatibility issues.
+* handle `COTIRE_MINIMUM_NUMBER_OF_TARGET_SOURCES` correctly for mixed-language targets.
+* correctly compute absolute paths of generated source files added to the unity source file.
+* fix bug with checking unity source and prefix header dependencies under Xcode.
+* fix bug with handling of unity source file dependencies.
+* move code to determine build configurations to function of its own.
+* documentation updates.
+
 ## 1.6.6 (2014-09-21)
 
 * fix GCC issue with prefix header generation when source files are missing.
